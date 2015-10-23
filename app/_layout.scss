@@ -109,11 +109,251 @@ img {
   display: inline-block;
 }
 
-.message-textarea {
+.message-text-box {
+  position: relative;
+  float: left;
+  width: 100%;
+  bottom: 0;
+  .options {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+
+  }
+  .message-textarea {
+    position: absolute;
+    right: 2rem;
+    width: 80%;
+  }
+}
+
+.message-box-bottom {
   position: fixed;
   bottom: 0;
-  width: 100%;
 }
+
+M_1 {
+    display: flex;
+    height: 96px;
+    min-height: auto;
+    min-width: auto;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    width: 840px;
+    align-content: stretch;
+    align-items: stretch;
+    align-self: stretch;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+    font: normal normal normal normal 16px / 16px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    margin: 0px 20px;
+}/*#FORM_1*/
+
+#DIV_2 {
+    height: 46px;
+    min-height: auto;
+    min-width: auto;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    width: 840px;
+    z-index: 0;
+    align-self: stretch;
+    perspective-origin: 420px 23px;
+    transform: matrix(1, 0, 0, 1, 0, 0);
+    transform-origin: 420px 23px;
+    font: normal normal normal normal 16px / 16px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    margin: 20px 0px 30px;
+}/*#DIV_2*/
+
+#DIV_3 {
+    box-sizing: border-box;
+    display: flex;
+    height: 46px;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    width: 840px;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content: flex-start;
+    perspective-origin: 420px 23px;
+    transform-origin: 420px 23px;
+    background: rgb(255, 255, 255) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 2px solid rgb(218, 221, 223);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal normal normal 16px / 16px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    padding: 12px 10px;
+}/*#DIV_3*/
+
+#DIV_4 {
+    background-position: 50% 50%;
+    height: 42px;
+    min-height: auto;
+    min-width: auto;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    width: 42.5938px;
+    align-self: stretch;
+    perspective-origin: 21.7969px 21px;
+    transform-origin: 21.7969px 21px;
+    background: rgba(0, 0, 0, 0) url(https://discordapp.com/assets/8c28d217cc33159474a64e24a2072c52.svg) no-repeat scroll 50% 50% / 25px 25px padding-box border-box;
+    border-right: 1px solid rgb(240, 240, 240);
+    font: normal normal normal normal 16px / 16px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    margin: -12px 10px -12px -10px;
+    overflow: hidden;
+    transition: background-color 0.1s ease 0s, border-right 0.1s ease 0s;
+}/*#DIV_4*/
+
+#INPUT_5 {
+    box-sizing: content-box;
+    cursor: pointer;
+    display: block;
+    height: 42px;
+    left: 0px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    width: 42.5938px;
+    z-index: 0;
+    align-items: baseline;
+    align-self: stretch;
+    perspective-origin: 21.2969px 21px;
+    transform-origin: 21.2969px 21px;
+    background: rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(0, 0, 0);
+    font: normal normal normal normal 11px / normal Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    padding: 0px;
+}/*#INPUT_5*/
+
+#TEXTAREA_6 {
+    box-sizing: content-box;
+    color: rgb(116, 127, 141);
+    display: block;
+    height: 18px;
+    max-height: 144px;
+    min-height: auto;
+    min-width: auto;
+    resize: none;
+    width: 772.406px;
+    align-self: stretch;
+    perspective-origin: 386.203px 9px;
+    transform-origin: 386.203px 9px;
+    border: 0px none rgb(116, 127, 141);
+    font: normal normal normal normal 14px / 18px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    outline: rgb(116, 127, 141) none 0px;
+    overflow: hidden;
+    padding: 0px;
+}/*#TEXTAREA_6*/
+
+#DIV_7 {
+    bottom: 1px;
+    color: rgb(115, 127, 141);
+    height: 26px;
+    left: 0px;
+    min-height: auto;
+    min-width: auto;
+    position: absolute;
+    text-rendering: optimizeLegibility;
+    width: 840px;
+    align-self: stretch;
+    perspective-origin: 420px 13px;
+    transform-origin: 420px 13px;
+    background: rgba(255, 255, 255, 0.8) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(115, 127, 141);
+    font: normal normal 500 normal 13px / 24px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    outline: rgb(115, 127, 141) none 0px;
+}/*#DIV_7*/
+
+#DIV_8 {
+    color: rgb(115, 127, 141);
+    display: inline-block;
+    height: 24px;
+    position: relative;
+    text-rendering: optimizeLegibility;
+    top: -1px;
+    width: 28px;
+    perspective-origin: 14px 12px;
+    transform-origin: 14px 12px;
+    border: 0px none rgb(115, 127, 141);
+    font: normal normal 500 normal 13px / 24px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    outline: rgb(115, 127, 141) none 0px;
+}/*#DIV_8*/
+
+#DIV_9 {
+    color: rgb(115, 127, 141);
+    display: inline-block;
+    height: 6px;
+    opacity: 0.3;
+    text-rendering: optimizeLegibility;
+    width: 6px;
+    z-index: 0;
+    perspective-origin: 3px 3px;
+    transform-origin: 3px 3px;
+    background: rgb(115, 127, 141) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(115, 127, 141);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal 500 normal 13px / 24px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    margin: 0px 2px 0px 0px;
+    outline: rgb(115, 127, 141) none 0px;
+}/*#DIV_9*/
+
+#DIV_10 {
+    color: rgb(115, 127, 141);
+    display: inline-block;
+    height: 6px;
+    opacity: 0.3;
+    text-rendering: optimizeLegibility;
+    width: 6px;
+    z-index: 0;
+    perspective-origin: 3px 3px;
+    transform-origin: 3px 3px;
+    animation: none 0s ease 0.2s 1 normal none running;
+    background: rgb(115, 127, 141) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(115, 127, 141);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal 500 normal 13px / 24px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    margin: 0px 2px 0px 0px;
+    outline: rgb(115, 127, 141) none 0px;
+}/*#DIV_10*/
+
+#DIV_11 {
+    color: rgb(115, 127, 141);
+    display: inline-block;
+    height: 6px;
+    opacity: 0.3;
+    text-rendering: optimizeLegibility;
+    width: 6px;
+    z-index: 0;
+    perspective-origin: 3px 3px;
+    transform-origin: 3px 3px;
+    animation: none 0s ease 0.4s 1 normal none running;
+    background: rgb(115, 127, 141) none repeat scroll 0% 0% / auto padding-box border-box;
+    border: 0px none rgb(115, 127, 141);
+    border-radius: 3px 3px 3px 3px;
+    font: normal normal 500 normal 13px / 24px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    margin: 0px -40px 0px 0px;
+    outline: rgb(115, 127, 141) none 0px;
+}/*#DIV_11*/
+
+#SPAN_12, #SPAN_14 {
+    color: rgb(115, 127, 141);
+    text-rendering: optimizeLegibility;
+    border: 0px none rgb(115, 127, 141);
+    font: normal normal 500 normal 13px / 24px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    outline: rgb(115, 127, 141) none 0px;
+}/*#SPAN_12, #SPAN_14*/
+
+#STRONG_13 {
+    color: rgb(115, 127, 141);
+    text-rendering: optimizeLegibility;
+    border: 0px none rgb(115, 127, 141);
+    font: normal normal bold normal 13px / 24px Whitney, 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    outline: rgb(115, 127, 141) none 0px;
+}/*#STRONG_13*/
+
+
+
+
 
 .cog {
   float: right;

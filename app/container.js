@@ -8,7 +8,7 @@ export default class App extends React.Component {
         <NavTop />
         <div className="app-main">
           <ChannelSection />
-          <CommentBox />
+          <MessageBox />
           <SideContent />
         </div>
       </div>
@@ -17,14 +17,14 @@ export default class App extends React.Component {
 }
 
 
-// Comment box
+// Message box
 
-class CommentBox extends Component {
+class MessageBox extends Component {
   render() {
     return (
       <div className="message-wrap">
-        <CommentList />
-        <CommentForm />
+        <MessageList />
+        <MessageForm />
       </div>
     );
   }
@@ -34,7 +34,7 @@ class CommentBox extends Component {
 // + and upload
 // whose typing
 // how many people, search
-class CommentList extends Component {
+class MessageList extends Component {
   render(){
     return(
       <div className="messages">
@@ -45,11 +45,44 @@ class CommentList extends Component {
   }
 }
 
-class CommentForm extends Component {
+// class MessageForm extends Component {
+//   render(){
+//     return (
+//       <form className="message-text-box">
+//         <i className="fa fa-internet-explorer options"></i>
+//         <textarea className="message-textarea" placeholder="enter message here..."></textarea>
+//         <i className="fa fa-smile-o emoji"></i>
+//       </form>
+//     );
+//   }
+// }
+
+class MessageForm extends Component {
   render(){
     return (
-      <div className="message-textarea">
-        <textarea placeholder="enter message here..."></textarea>
+      <div className="message-box-bottom">
+        <form id="FORM_1">
+          <div id="DIV_2">
+            <div id="DIV_3">
+              <div id="DIV_4">
+                <input type="file" id="INPUT_5" />
+              </div>
+              <textarea rows="1" placeholder="Chat in general..." id="TEXTAREA_6">
+                t
+              </textarea>
+            </div>
+          </div>
+          <div id="DIV_7">
+            <div id="DIV_8">
+              <div id="DIV_9">
+              </div>
+              <div id="DIV_10">
+              </div>
+              <div id="DIV_11">
+              </div>
+            </div><span id="SPAN_12"><strong id="STRONG_13">Gil</strong> <span id="SPAN_14">is typing...</span></span>
+          </div>
+        </form>
       </div>
     );
   }
