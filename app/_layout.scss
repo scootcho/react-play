@@ -1,0 +1,102 @@
+$concret: #95a5a6;
+$silver: #bdc3c7;
+$skyblue: #3498db;
+$royalblue: #2980b9;
+$orange: #f39c12;
+$red: #e74c3c;
+
+
+html, body {
+  height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+
+#container, .app-wrapper {
+  height: 100%;
+  width: 100%;
+  background-color: #999;
+}
+
+.nav-top {
+  width: 100%;
+  background-color: $skyblue;
+}
+
+.app-main {
+  background-color: yellow;
+  position: relative;
+}
+
+.nav-bottom {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: $skyblue;
+}
+
+
+// channel section
+
+.channel-section, .channel-section:before {
+    width: 15%;
+}
+.channel-section {
+    float: left;
+    padding: 20px 30px;
+    color: #6d7072;
+}
+.channel-section:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    left: 0;
+    background: #fff;
+}
+
+
+.comment-box, .comment-box:before {
+    width: 65%;
+}
+.comment-box {
+    float: left;
+    padding: 20px 30px;
+    color: #ebeef3;
+    font-size: 90%;
+}
+.comment-box:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    // left: 20%;
+    background-color: #5f6673;
+}
+
+
+.side-content .side-content:before {
+    width: 20%;
+}
+
+.side-content {
+    float: left;
+    padding: 20px 30px;
+    color: #ebeef3;
+    font-size: 90%;
+}
+.side-content:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    // left: 80%;
+    background-color: #434750;
+}

@@ -5,13 +5,13 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="app-wrapper">
-        <Header />
+        <NavTop />
         <div className="app-main">
           <ChannelSection />
           <CommentBox />
           <SideContent />
         </div>
-        <div className="footer"></div>
+        <NavBottom />
       </div>
     );
   }
@@ -23,7 +23,7 @@ export default class App extends React.Component {
 class CommentBox extends Component {
   render() {
     return (
-      <div className="commentbox">
+      <div className="comment-box">
         Hello I'm in a box
         <CommentList />
         <CommentForm />
@@ -36,7 +36,7 @@ class CommentBox extends Component {
 class CommentList extends Component {
   render(){
     return(
-      <div className="commentList">
+      <div className="comment-list">
         <Comment author="Scott">yo yo dawg</Comment>
         <Comment author="ninja turtles">this is awesome!</Comment>
       </div>
@@ -47,7 +47,7 @@ class CommentList extends Component {
 class CommentForm extends Component {
   render(){
     return (
-      <div className="commentForm">
+      <div className="comment-form">
         <textarea placeholder="enter message here..."></textarea>
       </div>
     );
@@ -58,7 +58,7 @@ class Comment extends Component {
   render(){
     return (
       <div className="comment">
-        <h2 className="commentAuthor">
+        <h2 className="comment-author">
           {this.props.author}
         </h2>
         {this.props.children}
@@ -70,11 +70,11 @@ class Comment extends Component {
 
 // header section
 
-class Header extends Component {
+class NavTop extends Component {
   render(){
     return (
-      <div className="header">
-        I'm Header
+      <div className="nav-top">
+        NAV TOP 
         <Search />
       </div>
     );
@@ -98,7 +98,7 @@ class Search extends Component {
 class ChannelSection extends Component {
   render(){
     return (
-      <div className="channelSection">
+      <div className="channel-section">
         I list some stuff on the side
         <ChannelsList />
         <FriendsList />
@@ -111,7 +111,7 @@ class ChannelSection extends Component {
 class ChannelsList extends Component {
   render(){
     return (
-      <div className="channelsList">
+      <div className="channels-list">
         list of channels
       </div>
     );
@@ -121,7 +121,7 @@ class ChannelsList extends Component {
 class FriendsList extends Component {
   render(){
     return (
-      <div className="friendsList">
+      <div className="friends-list">
         list of friends here
       </div>
     );
@@ -134,7 +134,7 @@ class FriendsList extends Component {
 class SideContent extends Component {
   render(){
     return (
-      <div className="sideContent">
+      <div className="side-content">
         Hi i'm side content
       </div>
     );
@@ -142,3 +142,14 @@ class SideContent extends Component {
 }
 
 
+// footer
+
+class NavBottom extends Component {
+  render(){
+    return (
+      <div className="nav-bottom">
+        BOTTOM NAV
+      </div>
+    );
+  }
+}
