@@ -11,7 +11,6 @@ export default class App extends React.Component {
           <CommentBox />
           <SideContent />
         </div>
-        <NavBottom />
       </div>
     );
   }
@@ -23,7 +22,7 @@ export default class App extends React.Component {
 class CommentBox extends Component {
   render() {
     return (
-      <div className="comment-box">
+      <div className="message-wrap">
         Hello I'm in a box
         <CommentList />
         <CommentForm />
@@ -36,7 +35,7 @@ class CommentBox extends Component {
 class CommentList extends Component {
   render(){
     return(
-      <div className="comment-list">
+      <div className="messages">
         <Comment author="Scott">yo yo dawg</Comment>
         <Comment author="ninja turtles">this is awesome!</Comment>
       </div>
@@ -47,7 +46,7 @@ class CommentList extends Component {
 class CommentForm extends Component {
   render(){
     return (
-      <div className="comment-form">
+      <div className="message-textarea">
         <textarea placeholder="enter message here..."></textarea>
       </div>
     );
@@ -74,8 +73,19 @@ class NavTop extends Component {
   render(){
     return (
       <div className="nav-top">
-        NAV TOP 
-        <Search />
+        <div className="channel-header">
+          <div className="team-name">
+            React PlAY!
+            <i className="fa fa-internet-explorer"></i>
+          </div>
+          <div className="current-user">
+            <i className="fa fa-circle current-user-name"> Scott</i>
+          </div>
+        </div>
+          <div className="active-channel-name">
+            # General
+          </div>
+          <Search />
       </div>
     );
   }
@@ -98,7 +108,7 @@ class Search extends Component {
 class ChannelSection extends Component {
   render(){
     return (
-      <div className="channel-section">
+      <div className="channels-wrap">
         I list some stuff on the side
         <ChannelsList />
         <FriendsList />
@@ -121,7 +131,7 @@ class ChannelsList extends Component {
 class FriendsList extends Component {
   render(){
     return (
-      <div className="friends-list">
+      <div className="members-list">
         list of friends here
       </div>
     );
@@ -142,14 +152,3 @@ class SideContent extends Component {
 }
 
 
-// footer
-
-class NavBottom extends Component {
-  render(){
-    return (
-      <div className="nav-bottom">
-        BOTTOM NAV
-      </div>
-    );
-  }
-}
