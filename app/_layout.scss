@@ -82,6 +82,14 @@ input, select, textarea {
   background: #333;
 }
 
+.mid-content {
+  display: inline-block;
+}
+
+.user-count {
+  float: right;
+}
+
 // message section
 
 .message-wrap {
@@ -93,10 +101,22 @@ input, select, textarea {
   background-color: white;
 }
 
+img {
+  display: inline-block;
+}
+
+.message-contents {
+  display: inline-block;
+}
+
 .message-textarea {
   position: fixed;
   bottom: 0;
   width: 100%;
+}
+
+.cog {
+  float: right;
 }
 
 
@@ -109,4 +129,3 @@ input, select, textarea {
   background-color: $grey-light;
   font-size: 90%;
 }
-

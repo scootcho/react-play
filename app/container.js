@@ -23,7 +23,6 @@ class CommentBox extends Component {
   render() {
     return (
       <div className="message-wrap">
-        Hello I'm in a box
         <CommentList />
         <CommentForm />
       </div>
@@ -31,13 +30,16 @@ class CommentBox extends Component {
   }
 }
 
-
+// Channels
+// + and upload
+// whose typing
+// how many people, search
 class CommentList extends Component {
   render(){
     return(
       <div className="messages">
-        <Comment author="Scott">yo yo dawg</Comment>
-        <Comment author="ninja turtles">this is awesome!</Comment>
+        <Message author="Scott">yo yo dawg</Message>
+        <Message author="ninja turtles">this is awesome!</Message>
       </div>
     );
   }
@@ -53,14 +55,24 @@ class CommentForm extends Component {
   }
 }
 
-class Comment extends Component { 
+class Message extends Component {
   render(){
     return (
-      <div className="comment">
-        <h2 className="comment-author">
-          {this.props.author}
-        </h2>
-        {this.props.children}
+      <div className="message">
+        <img className="message-author-icon" src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg">
+        </img>
+        <div className="message-contents">
+          <div className="message-top">
+            <b className="message-author">
+              {this.props.author}
+            </b>
+          11:22 a.m.
+          </div>
+          <div className="message-bottom">
+            {this.props.children}
+            <i className="fa fa-cog cog"> </i>
+          </div>
+        </div>
       </div>
     );
   }
@@ -82,12 +94,29 @@ class NavTop extends Component {
             <i className="fa fa-circle current-user-name"> Scott</i>
           </div>
         </div>
-          <div className="active-channel-name">
-            # General
-          </div>
+          <NavMid />
           <Search />
       </div>
     );
+  }
+}
+
+class NavMid extends Component {
+  render() {
+    return (
+      <div className="nav-mid mid-content">
+        <div className="current-channel mid-content">
+           General
+        </div>
+        <i className="fa fa-internet-explorer mid-content"></i>
+        <div className="current-channel-bio mid-content">
+          This is our main channel
+        </div>
+        <div className="user-count mid-content">
+          9001
+        </div>
+      </div>
+    )
   }
 }
 
@@ -109,9 +138,9 @@ class ChannelSection extends Component {
   render(){
     return (
       <div className="channels-wrap">
-        I list some stuff on the side
         <ChannelsList />
         <FriendsList />
+        <GroupsList />
       </div>
     );
   }
@@ -122,7 +151,13 @@ class ChannelsList extends Component {
   render(){
     return (
       <div className="channels-list">
-        list of channels
+        channels
+        <i className="fa fa-cog"></i>
+        <lu>
+          <li className="channel-name">Channels 1</li>
+          <li className="channel-name">Channels 2</li>
+          <li className="channel-name">Channels 3</li>
+        </lu>
       </div>
     );
   }
@@ -131,10 +166,32 @@ class ChannelsList extends Component {
 class FriendsList extends Component {
   render(){
     return (
-      <div className="members-list">
-        list of friends here
+      <div className="friend-list">
+        Friends
+        <i className="fa fa-cog"></i>
+        <lu>
+          <li className="channel-name">Pocket</li>
+          <li className="channel-name">Blaine</li>
+          <li className="channel-name">Locket</li>
+        </lu>
       </div>
     );
+  }
+}
+
+class GroupsList extends Component {
+  render() {
+    return (
+      <div className="groups-list">
+        Groups
+        <i className="fa fa-cog"></i>
+        <lu>
+          <li className="channel-name">BFFS</li>
+          <li className="channel-name">Devs</li>
+          <li className="channel-name">Hustlers</li>
+        </lu>
+      </div>
+    )
   }
 }
 
@@ -150,5 +207,3 @@ class SideContent extends Component {
     );
   }
 }
-
-
