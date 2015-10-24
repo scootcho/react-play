@@ -38,49 +38,30 @@ class MessageList extends Component {
   render(){
     return(
       <div className="messages">
-        <Message author="Scott">yo yo dawg</Message>
+        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
         <Message author="ninja turtles">this is awesome!</Message>
       </div>
     );
   }
 }
 
-// class MessageForm extends Component {
-//   render(){
-//     return (
-//       <form className="message-text-box">
-//         <i className="fa fa-internet-explorer options"></i>
-//         <textarea className="message-textarea" placeholder="enter message here..."></textarea>
-//         <i className="fa fa-smile-o emoji"></i>
-//       </form>
-//     );
-//   }
-// }
 
 class MessageForm extends Component {
   render(){
     return (
       <div className="message-box-bottom">
-        <form id="FORM_1">
-          <div id="DIV_2">
-            <div id="DIV_3">
-              <div id="DIV_4">
-                <input type="file" id="INPUT_5" />
+        <form id="message-form">
+          <div id="message-outter">
+            <div id="message-inner">
+              <div id="upload">
+                <input type="file" id="file" />
               </div>
-              <textarea rows="1" placeholder="Chat in general..." id="TEXTAREA_6">
-                t
+              <textarea rows="1" placeholder="Chat in general..." id="textbox">
               </textarea>
             </div>
           </div>
-          <div id="DIV_7">
-            <div id="DIV_8">
-              <div id="DIV_9">
-              </div>
-              <div id="DIV_10">
-              </div>
-              <div id="DIV_11">
-              </div>
-            </div><span id="SPAN_12"><strong id="STRONG_13">Gil</strong> <span id="SPAN_14">is typing...</span></span>
+          <div id="status">
+            <span>somebody is typing... </span>
           </div>
         </form>
       </div>
@@ -95,16 +76,18 @@ class Message extends Component {
         <img className="message-author-icon" src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg">
         </img>
         <div className="message-contents">
-          <div className="message-top">
-            <b className="message-author">
-              {this.props.author}
-            </b>
-          11:22 a.m.
-          </div>
+          <span className="message-author">
+            {this.props.author}
+          </span>
+          <span className="message-time">
+            11:22 a.m.
+          </span>
           <div className="message-bottom">
             {this.props.children}
-            <i className="fa fa-cog cog"> </i>
           </div>
+        </div>
+        <div className="options">
+          <i className="fa fa-cog"> </i>
         </div>
       </div>
     );
@@ -121,16 +104,24 @@ class NavTop extends Component {
         <div className="channel-header">
           <div className="team-name">
             React PlAY!
-            <i className="fa fa-internet-explorer"></i>
-          </div>
-          <div className="current-user">
-            <i className="fa fa-circle current-user-name"> Scott</i>
+            <i className="fa fa-angle-down"></i>
           </div>
         </div>
           <NavMid />
           <Search />
       </div>
     );
+  }
+}
+
+
+class CurrentUser extends Component {
+  render() {
+    return (
+      <div className="current-user">
+        <i className="fa fa-circle current-user-name">Scott</i>
+      </div>
+    )
   }
 }
 
@@ -174,6 +165,9 @@ class ChannelSection extends Component {
         <ChannelsList />
         <FriendsList />
         <GroupsList />
+        <div className="channel-bottom">
+          <CurrentUser />
+        </div>
       </div>
     );
   }
