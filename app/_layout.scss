@@ -4,6 +4,7 @@ $skyblue: #3498db;
 $royalblue: #2980b9;
 $orange: #f39c12;
 $red: #e74c3c;
+$metal: #333;
 
 $grey-lighter: rgb(248,248,248);
 $grey-light: rgb(221,221,221);
@@ -27,7 +28,7 @@ html, body {
 
 input, select, textarea {
   width: 100%;
-  // border: 1px solid transparent;
+  border: 1px solid transparent;
   &:focus {
     outline: 0;
   }
@@ -44,31 +45,113 @@ input, select, textarea {
   width: 100%;
   display: inline-block;
   height: 53px;
-  background-color: $skyblue;
-  .channel-header {
-    float: left;
-    display: inline-block;
-    height: 100%;
-    width: 15%;
-    text-align: center;
-    color: white;
-    background-color: #333;
-    .team-name {
-      padding: .5em;
-      font-size: 1.2rem;
-    }
-  }
-  .active-channel-name {
-    display: inline-block;
-    float: left;
-    width: 55%;
-  }
-  .search {
-    width: 20%;
+  background-color: white;
+  .mission-control {
     float: right;
+    position: relative;
+    color: $grey;
+    .search-box {
+      position: absolute;
+      width: 13rem;
+      top: .7rem;
+      right: 9.5rem;
+      padding: .1rem 1rem;
+      border: 1px solid $grey;
+      border-radius: 1rem;
+      #search {
+        width: 9.5rem;
+      }
+    }
+    .icon-1 {
+      font-size: 1.2rem;
+      position: absolute;
+      top: 1rem;
+      right: 7rem;
+    }
+    .icon-2 {
+      font-size: 1.2rem;
+      position: absolute;
+      top: 1rem;
+      right: 4.5rem;
+    }
+    .icon-3 {
+      font-size: 1.2rem;
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+    }
   }
 }
 
+.nav-mid {
+  width: 60%;
+  display: inline-block;
+  height: 53px;
+  line-height: 53px;
+  i.fav {
+    color: gold;
+    padding: 0 .4rem;
+  }
+  .current-channel {
+    font-size: 1.5rem;
+    color: $grey-text;
+  }
+  i.actions {
+    padding: 0 .4rem;
+  }
+  .current-channel-bio {
+    font-weight: 300;
+    margin-left: 2rem;
+    color: $grey-text-light;
+  }
+  .users-info {
+    color: $grey-text-light;
+    float: right;
+    margin: 0 1rem;
+  }
+  .info-toggle {
+    float: right;
+    margin-right: 1rem;
+    color: $grey-text-light;
+    font-size: 1.3rem;
+  }
+}
+
+
+
+
+
+.channel-header {
+  position: relative;
+  float: left;
+  display: inline-block;
+  height: 100%;
+  width: 15%;
+  text-align: center;
+  color: white;
+  background-color: $metal;
+  span.team-name {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 1rem;
+    margin-right: 2rem;
+    font-size: 1.2rem;
+  }
+  i.switcher {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+.active-channel-name {
+  display: inline-block;
+  float: left;
+  width: 55%;
+}
 
 .app-main {
   position: relative;
@@ -84,27 +167,60 @@ input, select, textarea {
   width: 15%;
   height: 100%;
   float: left;
-  padding: 20px 30px;
   color: white;
-  background: #333;
+  background-color: $metal;
+  .list-header {
+    position: relative;
+    font-weight: 300;
+    height: 1.5rem;
+    .list-name {
+      padding-left: 1rem;
+      text-align: left;
+    }  
+    i {
+      position: absolute;
+      right: 1em;
+      top: .25em;
+    }
+  }
+  ul {
+    margin-top: .2rem;
+    padding-left: 1.5rem;
+    list-style-type: none;
+    li {
+      font-weight: 100;
+    }
+  }  
   .channel-bottom {
+    display: block;
     position: fixed;
+    width: 15%;
+    color: white;
     bottom: 0;
+    height: 3rem;
+    background-color: $metal;
+    text-align: left;
+    line-height: 3rem;
+    vertical-align: middle;
+    text-align: center;
+    i {
+      margin-right: .5rem;
+      font-size: .8rem;
+      color: $skyblue;
+    }
+    .current-user {
+    }
   }
 }
 
-.mid-content {
-  display: inline-block;
-}
 
-.user-count {
-  float: right;
-}
+
+
 
 // message section
 
 .message-wrap {
-  width: 65%;
+  width: 60%;
   height: 100%;
   float: left;
   color: $grey-text-light;
@@ -133,8 +249,6 @@ input, select, textarea {
       font-size: .8rem;
       color: $silver;
     }
-    .message-bottom {
-    }
   }
   .options {
     display: inline-block;
@@ -148,14 +262,16 @@ input, select, textarea {
 .message-box-bottom {
   padding-left: 1.5rem;
   position: fixed;
+  width: 60%;
   bottom: 0;
   min-height: auto;
   min-width: auto;
+  background-color: white;
 }
 
 #message-outter {
   height: 46px;
-  width: 860px;
+  width: 96%;
   position: relative;
   align-self: stretch;
   margin: 20px 0px 30px;
@@ -217,7 +333,7 @@ input, select, textarea {
 // side content
 
 .side-content {
-  width: 20%;
+  width: 25%;
   height: 100%;
   float: left;
   background-color: $grey-light;
