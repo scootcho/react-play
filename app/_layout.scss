@@ -16,6 +16,32 @@ $grey-text-light: rgb(100, 100, 100);
 $grey-text: rgb(75, 75, 75);
 $grey-text-dark: rgb(65, 65, 65);
 
+
+// scroll bar mixin
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+
 html, body {
   height: 100vh;
   width: 100vw;
@@ -33,6 +59,8 @@ input, select, textarea {
     outline: 0;
   }
 }
+
+@include scrollbars(.5em, $grey);
 
 
 #container, .app-wrapper {
@@ -220,12 +248,16 @@ input, select, textarea {
 // message section
 
 .message-wrap {
+  overflow: scroll;
   width: 60%;
   height: 100%;
   float: left;
   color: $grey-text-light;
   font-size: 90%;
   background-color: white;
+  .messages {
+    margin-bottom: 9rem;
+  }
 }
 
 .message {
@@ -336,6 +368,82 @@ input, select, textarea {
   width: 25%;
   height: 100%;
   float: left;
-  background-color: $grey-light;
+  background-color: white;
   font-size: 90%;
+  .channel-name {
+    position: relative;
+    font-size: 1.4em;
+    text-align: left;
+    padding: 1rem 0;
+    padding-left: 2rem;
+    border-bottom: 1px solid $grey;
+    i {
+      position: absolute;
+      right: 1rem;
+      top: 1.2rem;
+    }
+  }
+  .channel-info {
+    color: $grey-text;
+    font-weight: 100;
+    position: relative;
+    font-size: 1.2rem;
+    padding: .8rem 0;
+    padding-left: 3rem;
+    border-bottom: 1px solid $grey;
+    i.info {
+      color: $skyblue;
+      position: absolute;
+      left: 1.5rem; 
+      top: 1.1rem;
+    }
+    i.caret {
+      position: absolute;
+      right: 1rem; 
+      top: 1.1rem;
+    }
+  }
+  .pinned-info {
+    color: $grey-text;
+    font-weight: 100;
+    position: relative;
+    font-size: 1.2rem;
+    padding: .8rem 0;
+    padding-left: 3rem;
+    border-bottom: 1px solid $grey;
+    i.pinned {
+      font-size: .9rem;
+      color: $red;
+      position: absolute;
+      left: 1.5rem; 
+      top: 1.2rem;
+    }
+    i.caret {
+      position: absolute;
+      right: 1rem; 
+      top: 1.1rem;
+    }
+  }
+  .members-info {
+    color: $grey-text;
+    font-weight: 100;
+    position: relative;
+    font-size: 1.2rem;
+    padding: .8rem 0;
+    padding-left: 3rem;
+    border-bottom: 1px solid $grey;
+    i.members {
+      font-size: .9rem;
+      color: teal;
+      position: absolute;
+      left: 1.5rem; 
+      top: 1.2rem;
+    }
+    i.caret {
+      position: absolute;
+      right: 1rem; 
+      top: 1.1rem;
+    }
+  }
+
 }
