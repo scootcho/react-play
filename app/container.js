@@ -5,11 +5,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="app-wrapper">
-        <NavTop />
+        <NavTop team="AWESOME TEAM"/>
         <div className="app-main">
           <ChannelSection />
           <MessageBox />
-          <SideContent />
+          <SideContent channelDescription="a place to hang and chill" channelDetails="This is our main channel..." pinnedItems="1. 2. 3." memberCount="210/3873" />
         </div>
       </div>
     );
@@ -94,7 +94,7 @@ class Message extends Component {
             {this.props.author}
           </span>
           <span className="message-time">
-            11:22 AM 
+            11:22 AM
           </span>
           <div className="message-bottom">
             {this.props.children}
@@ -117,11 +117,11 @@ class NavTop extends Component {
       <div className="nav-top">
         <div className="channel-header">
           <span className="team-name">
-            PULSE TEAMCHAT
+            {this.props.team}
           </span>
           <i className="fa fa-angle-down switcher"></i>
         </div>
-        <NavTitle />
+        <NavTitle channel="General" channelDescription="A place to hangout" />
         <NavOptions />
       </div>
     );
@@ -138,11 +138,11 @@ class NavTitle extends Component {
       <div className="nav-mid">
         <i className="fa fa-star-o fav"></i>
         <span className="current-channel">
-           General
+          {this.props.channel}
         </span>
         <i className="fa fa-angle-down actions"></i>
         <span className="current-channel-bio">
-          This is our main channel
+          {this.props.channelDescription}
         </span>
         <span className="info-toggle">
           <i className="fa fa-info-circle"></i>
@@ -201,8 +201,8 @@ class ChannelsList extends Component {
           <i className="fa fa-plus-square-o"></i>
         </div>
         <ul>
-          <li className="channel-name">Channels 1</li>
-          <li className="channel-name">Channels 2</li>
+          <li className="channel-name">{this.props.channelTitle}</li>
+          <li className="channel-name">{}</li>
           <li className="channel-name">Channels 3</li>
         </ul>
       </div>
@@ -256,7 +256,7 @@ class CurrentUser extends Component {
     return (
       <div className="channel-bottom">
         <i className="fa fa-circle current-user-name"></i>
-        <span className="current-user">Scott</span>
+        <span className="current-user">{this.props.currentUser}</span>
       </div>
     )
   }
@@ -271,28 +271,28 @@ class SideContent extends Component {
     return (
       <div className="side-content">
         <div className="channel-name">
-          About #this Channel
+          {this.props.channelDescription}
           <i className="fa fa-times"></i>
         </div>
         <div className="channel-info">
           <i className="fa fa-info info"></i>
           <span className="channel-details">
-            Channel Details
-          </span> 
+            {this.props.channelDetails}
+          </span>
           <i className="fa fa-angle-right caret"></i>
         </div>
         <div className="pinned-info">
           <i className="fa fa-thumb-tack pinned"></i>
           <span className="pinned-details">
-            Pinned Items 
-          </span> 
+            {this.props.pinnedItems}
+          </span>
           <i className="fa fa-angle-right caret"></i>
         </div>
         <div className="members-info">
           <i className="fa fa-user members"></i>
           <span className="members-details">
-            122/453 Members 
-          </span> 
+            {this.props.memberCount}
+          </span>
           <i className="fa fa-angle-right caret"></i>
         </div>
       </div>
