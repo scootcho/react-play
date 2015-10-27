@@ -1,6 +1,44 @@
 import React, { PropTypes, Component } from 'react';
 
 
+// actions
+
+// const SET_ROOMS = 'SET_ROOMS';
+export const CHANGE_ROOM = 'CHANGE_ROOM';
+ 
+// function setRooms(rooms) {
+//   return {
+//     type: SET_ROOMS,
+//     rooms
+//   };
+// } 
+
+function changeRoom(room) {
+  return {
+    type: CHANGE_ROOM,
+    room: room
+  };
+}
+
+
+// // reducer
+
+// const initialState = {
+//   list : ["channel 1", "channel 2", "channel4 news"]
+// }
+
+// function rooms(state = initialState, action) {
+//   switch(action.type) {
+//   case SET_ROOMS:
+//     return { ...state, list: action.rooms };
+//   default:
+//     return state;
+//   }
+// }
+
+
+
+
 export default class App extends React.Component {
   render() {
     return (
@@ -181,7 +219,6 @@ class ChannelSection extends Component {
 class ChannelsList extends Component {
   static propTypes : { list: React.PropTypes.array.isRequired}
   render(){
-    var list = this.props.list;
     return (
       <div className="channels-list">
         <div className="list-header">
@@ -200,10 +237,37 @@ class ChannelsList extends Component {
     }
 }
 
+
+// var RootComponent = React.createClass({
+//   handleCartAdded: function(cart) {
+//     console.log('Got a new cart: ' + cart);
+//   }
+//   handleError: function(err) {
+//     console.error(err)
+//   }
+//   render: function() {
+//     return (
+//       <ProductPurchase onCartAdded={this.handleCartAdded} onError={this.handleError} />
+//     )
+//   }
+// })
+
 class List extends Component {
+  onRoomChange(room) {
+    alert(room)
+    // <NavTitle channel="room NEW NEW" channelDescription="A place to hangout" />
+  }
+  
+
   render(){
+  console.log(this.props.changeRoom)
+    var room = (this.props.data)
     return(
-      <li className="channel-name">{this.props.data}</li>
+      <li className="channel-name"
+          onClick={e => this.onRoomChange(room)}> 
+          {this.props.data}
+      </li>
+
     );
   }
 }
