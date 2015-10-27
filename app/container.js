@@ -30,35 +30,48 @@ class MessageBox extends Component {
   }
 }
 
-// Channels
-// how many people, search
 class MessageList extends Component {
   render(){
+    var message = "Hey ".repeat(70)
     return(
       <div className="messages">
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
-        <Message author="Scott">yyyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yoyo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo yo o yo dawg</Message>
-        <Message author="ninja turtles">this is awesome!</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message author="Scott" time="11:22 AM">{message}</Message>
       </div>
     );
   }
 }
 
+class Message extends Component {
+  render(){
+    return (
+      <div className="message">
+        <img className="message-author-icon" src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg">
+        </img>
+        <div className="message-contents">
+          <span className="message-author">
+            {this.props.author}
+          </span>
+          <span className="message-time">
+            {this.props.time}
+          </span>
+          <div className="message-bottom">
+            {this.props.children}
+          </div>
+        </div>
+        <div className="options">
+          <i className="fa fa-cog"> </i>
+        </div>
+      </div>
+    );
+  }
+}
 
 class MessageForm extends Component {
   render(){
@@ -83,30 +96,6 @@ class MessageForm extends Component {
   }
 }
 
-class Message extends Component {
-  render(){
-    return (
-      <div className="message">
-        <img className="message-author-icon" src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg">
-        </img>
-        <div className="message-contents">
-          <span className="message-author">
-            {this.props.author}
-          </span>
-          <span className="message-time">
-            11:22 AM
-          </span>
-          <div className="message-bottom">
-            {this.props.children}
-          </div>
-        </div>
-        <div className="options">
-          <i className="fa fa-cog"> </i>
-        </div>
-      </div>
-    );
-  }
-}
 
 
 // header section
@@ -181,34 +170,13 @@ class ChannelSection extends Component {
     return (
       <div className="channels-wrap">
         <ChannelsList list={["channel 1", "channel 2", "channel4 news"]}/>
-        <FriendsList />
-        <GroupsList />
-        <CurrentUser />
+        <FriendsList list={["Friend 1", "Friend 2", "Friend 3"]}/>
+        <GroupsList list={["group 1", "group 2", "group 3"]}/>
+        <CurrentUser currentUser="Scott" />
       </div>
     );
   }
 }
-
-// class ChannelsList extends Component {
-//   render(){
-//     return (
-//       <div className="channels-list">
-//         <div className="list-header">
-//           <span className="list-name">
-//             CHANNELS
-//           </span>
-//           <i className="fa fa-plus-square-o"></i>
-//         </div>
-//         <ul>
-//           <li className="channel-name">{this.props.channelTitle}</li>
-//           <li className="channel-name">{}</li>
-//           <li className="channel-name">Channels 3</li>
-//         </ul>
-//       </div>
-//     );
-//   }
-// }
-
 
 class ChannelsList extends Component {
   static propTypes : { list: React.PropTypes.array.isRequired}
@@ -234,7 +202,6 @@ class ChannelsList extends Component {
 
 class List extends Component {
   render(){
-    console.log(this.props.data)
     return(
       <li className="channel-name">{this.props.data}</li>
     );
@@ -242,6 +209,7 @@ class List extends Component {
 }
 
 class FriendsList extends Component {
+  static propTypes : { list: React.PropTypes.array.isRequired}
   render(){
     return (
       <div className="friend-list">
@@ -252,9 +220,9 @@ class FriendsList extends Component {
           <i className="fa fa-plus-square-o"></i>
         </div>
         <ul>
-          <li className="channel-name">Pocket</li>
-          <li className="channel-name">Blaine</li>
-          <li className="channel-name">Locket</li>
+          {this.props.list.map(function(item) {
+            return <List key={item.id} data={item} />;
+           })}
         </ul>
       </div>
     );
@@ -262,6 +230,7 @@ class FriendsList extends Component {
 }
 
 class GroupsList extends Component {
+  static propTypes : { list: React.PropTypes.array.isRequired}
   render() {
     return (
       <div className="groups-list">
@@ -272,9 +241,9 @@ class GroupsList extends Component {
           <i className="fa fa-plus-square-o"></i>
         </div>
         <ul>
-          <li className="channel-name">BFFS</li>
-          <li className="channel-name">Devs</li>
-          <li className="channel-name">Hustlers</li>
+          {this.props.list.map(function(item) {
+            return <List key={item.id} data={item} />;
+           })}
         </ul>
       </div>
     )
@@ -292,7 +261,6 @@ class CurrentUser extends Component {
     )
   }
 }
-
 
 
 // side content
