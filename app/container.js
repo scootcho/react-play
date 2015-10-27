@@ -180,7 +180,7 @@ class ChannelSection extends Component {
   render(){
     return (
       <div className="channels-wrap">
-        <ChannelsList />
+        <ChannelsList list={["channel 1", "channel 2", "channel4 news"]}/>
         <FriendsList />
         <GroupsList />
         <CurrentUser />
@@ -189,9 +189,31 @@ class ChannelSection extends Component {
   }
 }
 
+// class ChannelsList extends Component {
+//   render(){
+//     return (
+//       <div className="channels-list">
+//         <div className="list-header">
+//           <span className="list-name">
+//             CHANNELS
+//           </span>
+//           <i className="fa fa-plus-square-o"></i>
+//         </div>
+//         <ul>
+//           <li className="channel-name">{this.props.channelTitle}</li>
+//           <li className="channel-name">{}</li>
+//           <li className="channel-name">Channels 3</li>
+//         </ul>
+//       </div>
+//     );
+//   }
+// }
+
 
 class ChannelsList extends Component {
+  static propTypes : { list: React.PropTypes.array.isRequired}
   render(){
+    var list = this.props.list;
     return (
       <div className="channels-list">
         <div className="list-header">
@@ -201,11 +223,20 @@ class ChannelsList extends Component {
           <i className="fa fa-plus-square-o"></i>
         </div>
         <ul>
-          <li className="channel-name">{this.props.channelTitle}</li>
-          <li className="channel-name">{}</li>
-          <li className="channel-name">Channels 3</li>
+          {this.props.list.map(function(item) {
+            return <List key={item.id} data={item} />;
+           })}
         </ul>
       </div>
+    );
+    }
+}
+
+class List extends Component {
+  render(){
+    console.log(this.props.data)
+    return(
+      <li className="channel-name">{this.props.data}</li>
     );
   }
 }
