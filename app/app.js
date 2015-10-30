@@ -9,14 +9,10 @@ import './main.scss';
 // const SET_ROOMS = 'SET_ROOMS';
 const CHANGE_ROOM = 'CHANGE_ROOM';
  
-// function setRooms(rooms) {
-//   return {
-//     type: SET_ROOMS,
-//     rooms
-//   };
-// } 
 
-function changeRoom(room) {
+const changeRoom = function(room) {
+  alert("hoy!");
+  console.log(room);
   return {
     type: CHANGE_ROOM,
     room: room
@@ -24,11 +20,7 @@ function changeRoom(room) {
 }
 
 
-// // reducer
-
-// const initialState = {
-//   list : ["channel 1", "channel 2", "channel4 news"]
-// }
+// reducer
 
 // function rooms(state = initialState, action) {
 //   switch(action.type) {
@@ -38,8 +30,6 @@ function changeRoom(room) {
 //     return state;
 //   }
 // }
-
-
 
 
 // export default class App extends React.Component {
@@ -241,33 +231,12 @@ class ChannelsList extends Component {
 }
 
 
-// var RootComponent = React.createClass({
-//   handleCartAdded: function(cart) {
-//     console.log('Got a new cart: ' + cart);
-//   }
-//   handleError: function(err) {
-//     console.error(err)
-//   }
-//   render: function() {
-//     return (
-//       <ProductPurchase onCartAdded={this.handleCartAdded} onError={this.handleError} />
-//     )
-//   }
-// })
 
 class List extends Component {
-  onRoomChange(room) {
-    alert(room)
-    // <NavTitle channel="room NEW NEW" channelDescription="A place to hangout" />
-  }
-  
-
   render(){
-  console.log(this.props.changeRoom)
-    var room = (this.props.data)
     return(
       <li className="channel-name"
-          onClick={e => this.onRoomChange(room)}> 
+          onClick={e => changeRoom(e.target.textContent)}> 
           {this.props.data}
       </li>
 
