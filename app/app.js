@@ -1,6 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import ReactDOM from "react-dom";
-import Container from "./container"; 
+import { createStore } from 'redux';
+import { Provider, connect } from 'react-redux';
+import { combineReducers } from 'redux';
+import { bindActionCreators } from 'redux';
 import './main.scss';
 
 
@@ -10,38 +13,41 @@ import './main.scss';
 const CHANGE_ROOM = 'CHANGE_ROOM';
  
 
+// const changeRoom = function(room) {
+//   return {
+//     type: CHANGE_ROOM,
+//     room: room
+//   }
+// }
+  
 const changeRoom = function(room) {
-  alert("hoy!");
-  console.log(room);
-  return {
-    type: CHANGE_ROOM,
-    room: room
-  };
+  return (
+    {type: 'CHANGE_ROOM', room: room}
+  )
 }
-
 
 // reducer
 
-// function rooms(state = initialState, action) {
-//   switch(action.type) {
-//   case SET_ROOMS:
-//     return { ...state, list: action.rooms };
-//   default:
-//     return state;
-//   }
-// }
+function rooms (state = { currentRoom: "lobby"}, action) {
+  switch(action.type) {
+  case 'CHANGE_ROOM':
+    return { currentRoom: action.room };
+  default:
+    return state
+  }
+}
 
 
-// export default class App extends React.Component {
-class App extends React.Component {
+class Wrapper extends React.Component {
   render() {
+    console.log(this.props)
     return (
       <div className="app-wrapper">
-        <NavTop team="AWESOME TEAM"/>
+        <NavTop {...this.props} team="AWESOME TEAM"/>
         <div className="app-main">
-          <ChannelSection />
-          <MessageBox />
-          <SideContent channelDescription="a place to hang and chill" channelDetails="This is our main channel..." pinnedItems="1. 2. 3." memberCount="210/3873" />
+          <ChannelSection {...this.props} />
+          <MessageBox {...this.props} />
+          <SideContent {...this.props} channelDescription="a place to hang and chill" channelDetails="This is our main channel..." pinnedItems="1. 2. 3." memberCount="210/3873" />
         </div>
       </div>
     );
@@ -142,7 +148,7 @@ class NavTop extends Component {
           </span>
           <i className="fa fa-angle-down switcher"></i>
         </div>
-        <NavTitle channel="General" channelDescription="A place to hangout" />
+        <NavTitle {...this.props} channelDescription="A place to hangout" />
         <NavOptions />
       </div>
     );
@@ -155,11 +161,12 @@ class NavTop extends Component {
 
 class NavTitle extends Component {
   render() {
+    const { currentRoom } = this.props;
     return (
       <div className="nav-mid">
         <i className="fa fa-star-o fav"></i>
         <span className="current-channel">
-          {this.props.channel}
+          { currentRoom }
         </span>
         <i className="fa fa-angle-down actions"></i>
         <span className="current-channel-bio">
@@ -201,9 +208,9 @@ class ChannelSection extends Component {
   render(){
     return (
       <div className="channels-wrap">
-        <ChannelsList list={["channel 1", "channel 2", "channel4 news"]}/>
-        <FriendsList list={["Friend 1", "Friend 2", "Friend 3"]}/>
-        <GroupsList list={["group 1", "group 2", "group 3"]}/>
+        <ChannelsList {...this.props} list={["channel 1", "channel 2", "channel4 news"]}/>
+        <FriendsList {...this.props} list={["channel 1", "channel 2", "channel4 news"]}/>
+        <GroupsList {...this.props} list={["channel 1", "channel 2", "channel4 news"]}/>
         <CurrentUser currentUser="Scott" />
       </div>
     );
@@ -211,7 +218,19 @@ class ChannelSection extends Component {
 }
 
 class ChannelsList extends Component {
-  render(){
+
+  static propTypes : { list: React.PropTypes.array.isRequired}
+
+  render() {
+    
+    const ChannelListings = this.props.list.map((item, index) => (
+      <li className="channel-name" onClick={e => onChangeRoom(e.target.textContent)} key={`${index}-item`}>
+        {item}
+      </li>
+    ));
+
+    const { onChangeRoom } = this.props
+
     return (
       <div className="channels-list">
         <div className="list-header">
@@ -221,32 +240,26 @@ class ChannelsList extends Component {
           <i className="fa fa-plus-square-o"></i>
         </div>
         <ul>
-          {this.props.list.map(function(item) {
-            return <List key={item.id} data={item} />;
-           })}
+          { ChannelListings }
         </ul>
       </div>
-    );
-    }
-}
-
-
-
-class List extends Component {
-  render(){
-    return(
-      <li className="channel-name"
-          onClick={e => changeRoom(e.target.textContent)}> 
-          {this.props.data}
-      </li>
-
     );
   }
 }
 
+
 class FriendsList extends Component {
   static propTypes : { list: React.PropTypes.array.isRequired}
   render(){
+
+    const FriendsListings = this.props.list.map((item, index) => (
+      <li className="channel-name" onClick={e => onChangeRoom(e.target.textContent)} key={`${index}-item`}>
+        {item}
+      </li>
+    ));
+
+    const { onChangeRoom } = this.props
+
     return (
       <div className="friend-list">
         <div className="list-header">
@@ -256,9 +269,7 @@ class FriendsList extends Component {
           <i className="fa fa-plus-square-o"></i>
         </div>
         <ul>
-          {this.props.list.map(function(item) {
-            return <List key={item.id} data={item} />;
-           })}
+          { FriendsListings }
         </ul>
       </div>
     );
@@ -266,8 +277,19 @@ class FriendsList extends Component {
 }
 
 class GroupsList extends Component {
+  
   static propTypes : { list: React.PropTypes.array.isRequired}
+  
   render() {
+
+    const GroupsListings = this.props.list.map((item, index) => (
+      <li className="channel-name" onClick={e => onChangeRoom(e.target.textContent)} key={`${index}-item`}>
+        {item}
+      </li>
+    ));
+
+    const { onChangeRoom } = this.props
+
     return (
       <div className="groups-list">
         <div className="list-header">
@@ -277,9 +299,7 @@ class GroupsList extends Component {
           <i className="fa fa-plus-square-o"></i>
         </div>
         <ul>
-          {this.props.list.map(function(item) {
-            return <List key={item.id} data={item} />;
-           })}
+          { GroupsListings }
         </ul>
       </div>
     )
@@ -303,10 +323,12 @@ class CurrentUser extends Component {
 
 class SideContent extends Component {
   render(){
+    const { currentRoom } = this.props;
+
     return (
       <div className="side-content">
         <div className="channel-name">
-          {this.props.channelDescription}
+          { currentRoom }
           <i className="fa fa-times"></i>
         </div>
         <div className="channel-info">
@@ -336,9 +358,35 @@ class SideContent extends Component {
 }
 
 
+function mapStateToProps (state) {
+  console.log("==state==")
+  console.log(state.currentRoom)
+  console.log("==state==")
+  return {
+    currentRoom: state.currentRoom,
+  };
+}
 
+
+function mapDispatchToProps (dispatch) {
+  return {
+    onChangeRoom: (room) => dispatch(changeRoom(room)),
+  }
+}
+
+
+
+const store = createStore(rooms)
+
+const App = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Wrapper)
 
 ReactDOM.render(
-  <App />, 
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('container')
-);
+)
+
