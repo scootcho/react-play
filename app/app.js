@@ -61,8 +61,8 @@ class MessageBox extends Component {
   render() {
     return (
       <div className="message-wrap">
-        <MessageList />
-        <MessageForm />
+        <MessageList {...this.props} />
+        <MessageForm {...this.props} />
       </div>
     );
   }
@@ -70,17 +70,9 @@ class MessageBox extends Component {
 
 class MessageList extends Component {
   render(){
-    var message = "Hey ".repeat(70)
     return(
       <div className="messages">
-        <Message author="Scott" time="11:22 AM">{message}</Message>
-        <Message author="Scott" time="11:22 AM">{message}</Message>
-        <Message author="Scott" time="11:22 AM">{message}</Message>
-        <Message author="Scott" time="11:22 AM">{message}</Message>
-        <Message author="Scott" time="11:22 AM">{message}</Message>
-        <Message author="Scott" time="11:22 AM">{message}</Message>
-        <Message author="Scott" time="11:22 AM">{message}</Message>
-        <Message author="Scott" time="11:22 AM">{message}</Message>
+        <Message />
       </div>
     );
   }
@@ -88,10 +80,12 @@ class MessageList extends Component {
 
 class Message extends Component {
   render(){
+    const { author, time, message} = this.props; 
+    this.props = {author: "scott", time: "11:22 AM", message: "yoooooooyooooooo", avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg"}
+    
     return (
       <div className="message">
-        <img className="message-author-icon" src="https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg">
-        </img>
+        <img className="message-author-icon" src={this.props.avatar}></img>
         <div className="message-contents">
           <span className="message-author">
             {this.props.author}
@@ -100,7 +94,7 @@ class Message extends Component {
             {this.props.time}
           </span>
           <div className="message-bottom">
-            {this.props.children}
+            {this.props.message}
           </div>
         </div>
         <div className="options">
@@ -112,6 +106,10 @@ class Message extends Component {
 }
 
 class MessageForm extends Component {
+  
+
+
+
   render(){
     return (
       <div className="message-box-bottom">
@@ -121,7 +119,7 @@ class MessageForm extends Component {
               <div id="upload">
                 <input type="file" id="file" />
               </div>
-              <textarea rows="1" placeholder="Chat in general..." id="textbox">
+              <textarea rows="1" placeholder="type to chat..." id="textbox">
               </textarea>
             </div>
           </div>
