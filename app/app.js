@@ -11,18 +11,18 @@ import './main.scss';
 
 // const SET_ROOMS = 'SET_ROOMS';
 const CHANGE_ROOM = 'CHANGE_ROOM';
- 
+const SUBMIT_MESSAGE = 'SUBMIT_MESSAGE'; 
 
-// const changeRoom = function(room) {
-//   return {
-//     type: CHANGE_ROOM,
-//     room: room
-//   }
-// }
   
 const changeRoom = function(room) {
   return (
     {type: 'CHANGE_ROOM', room: room}
+  )
+}
+
+const submitMessage = function(message) {
+  return (
+    {type: 'SUBMIT_MESSAGE', message: message}
   )
 }
 
@@ -37,10 +37,23 @@ function rooms (state = { currentRoom: "lobby"}, action) {
   }
 }
 
+function messaging (state = [], action) {
+  switch(action.type) {
+  case 'SUBMIT_MESSAGE':
+    return [
+     ...state,
+      {
+        chat: action.message
+       } 
+    ]
+  default:
+    return state
+  }
+}
+
 
 class Wrapper extends React.Component {
   render() {
-    console.log(this.props)
     return (
       <div className="app-wrapper">
         <NavTop {...this.props} team="AWESOME TEAM"/>
@@ -70,9 +83,12 @@ class MessageBox extends Component {
 
 class MessageList extends Component {
   render(){
+    const { messages } = this.props;
     return(
       <div className="messages">
-        <Message />
+        { this.props.messages.map(function(message) {
+          return <Message author={message.chat.author} time={message.chat.time} message={message.chat.message}/>
+                                                     })}
       </div>
     );
   }
@@ -80,8 +96,8 @@ class MessageList extends Component {
 
 class Message extends Component {
   render(){
-    const { author, time, message} = this.props; 
-    this.props = {author: "scott", time: "11:22 AM", message: "yoooooooyooooooo", avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg"}
+    const { author, time, message, avatar } = this.props; 
+    this.props = {...this.props, avatar: "https://s3.amazonaws.com/uifaces/faces/twitter/idiot/48.jpg"}
     
     return (
       <div className="message">
@@ -106,9 +122,21 @@ class Message extends Component {
 }
 
 class MessageForm extends Component {
-  
+  constructor(props) {
+    super(props);
+    this.state = {message: ''}
+  }
 
+  handleMessageChange(e) {
+    this.setState({message: e.target.value})
+  }
 
+  handleMessageKeyDown(e) {
+    if (e.keyCode === 13) {
+      this.props.onSubmitMessage({author:"scott", time: "99:99PM", message: e.target.value});
+      this.setState({message: ''});
+    }
+  }
 
   render(){
     return (
@@ -119,7 +147,7 @@ class MessageForm extends Component {
               <div id="upload">
                 <input type="file" id="file" />
               </div>
-              <textarea rows="1" placeholder="type to chat..." id="textbox">
+              <textarea rows="1" placeholder="type to chat..." id="textbox" value={this.state.message} onChange={e => this.handleMessageChange(e)} onKeyDown={e => this.handleMessageKeyDown(e)}>
               </textarea>
             </div>
           </div>
@@ -357,11 +385,12 @@ class SideContent extends Component {
 
 
 function mapStateToProps (state) {
-  console.log("==state==")
-  console.log(state.currentRoom)
-  console.log("==state==")
+  // console.log("==state==")
+  // console.log(state)
+  // console.log("==state==")
   return {
-    currentRoom: state.currentRoom,
+    currentRoom: state.rooms.currentRoom,
+    messages: state.messaging
   };
 }
 
@@ -369,12 +398,16 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
   return {
     onChangeRoom: (room) => dispatch(changeRoom(room)),
+    onSubmitMessage: (message) => dispatch(submitMessage(message))
   }
 }
 
+const reducers = combineReducers({
+  rooms,
+  messaging
+});
 
-
-const store = createStore(rooms)
+const store = createStore(reducers)
 
 const App = connect(
   mapStateToProps,
